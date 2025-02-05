@@ -1,0 +1,6 @@
+1. Command to build the docker image
+docker build -t challenge-b .
+
+2. Run the Container with a Volume to Expose Output
+docker run --rm -v $(pwd)/output:/app/output challenge-b
+

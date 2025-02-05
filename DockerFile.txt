@@ -1,0 +1,16 @@
+FROM node:18
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy both scripts (Challenge A and Challenge B) to the container
+COPY challenge_a.js challenge_b.js package.json /app/
+
+# Install dependencies
+RUN npm install
+
+# Generate the input file
+RUN node challenge_a.js
+
+# Command to run Challenge B and save the output
+CMD ["sh", "-c", "node challenge_b.js > /app/output.txt && tail -f /app/output.txt"]
